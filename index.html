@@ -1,0 +1,423 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Blinkit Clone | Grocery Delivery</title>
+    <link rel="stylesheet" href="styles.css">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+</head>
+<body>
+    <!-- Header -->
+    <header>
+        <div class="logo">
+            <img src="./assets/blinkit.png" alt="Blinkit">
+        </div>
+        <!-- Delivery Header -->
+<div class="delivery-header">
+    <div class="delivery-time">
+      ⚡ Delivery in <span id="deliveryMinutes">14</span> minutes to
+    </div>
+    <div class="location-selector">
+      <button id="locationButton">
+        <span id="locationText">Bhubaneswar, Odisha</span>
+        <span class="dropdown-icon">▼</span>
+      </button>
+      <div id="locationModal" class="location-modal">
+        <div class="modal-content">
+          <h3>Change Delivery Location</h3>
+          <div class="input-group">
+            <input type="text" id="pincodeInput" 
+                   placeholder="Enter 6-digit PIN code" 
+                   maxlength="6"
+                   pattern="\d{6}">
+            <button onclick="checkLocation()">Check</button>
+          </div>
+          <div id="locationMessage"></div>
+          <div class="recent-locations">
+            <div class="location-tag" data-pincode="751024">Bhubaneswar (751024)</div>
+            <div class="location-tag" data-pincode="751030">Patia (751030)</div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+        <div class="search-bar">
+            <input type="text" placeholder="Search for products...">
+            <img src="https://cdn-icons-png.flaticon.com/512/149/149852.png" class="search-icon" alt="Search">
+        </div>
+        <div class="user-actions">
+            <button class="login-btn">Login</button>
+            <button class="cart-btn">My Cart</button>
+        </div>
+    </header>
+<!-- Promotional Sections -->
+<div class="promo-sections">
+    <!-- All cards in 80% container -->
+    <div class="promo-container">
+        <!-- Paan Corner -->
+        <div class="promo-card  paan-bg">
+            <div class="promo-content">
+                <h3>Paan corner</h3>
+                <p>Your favourite paan shop is now online</p>
+                <button class="promo-btn1">Shop Now</button>
+            </div>
+        </div>
+
+        <!-- Three cards in one row -->
+        <div class="promo-row">
+            <!-- Pharmacy -->
+            <div class="promo-card pharmacy-bg">
+                <div class="promo-content">
+                    <h3>Pharmacy at <br>your doorstep</h3>
+                    <p>Cough syrups, pain<br> relief sprays & more</p>
+                    <button class="promo-btn2">Order Now</button>
+                </div>
+            </div>
+
+            <!-- Pet Care -->
+            <div class="promo-card petcare-bg">
+                <div class="promo-content ">
+                    <h3>Pet Care supplies <br>in minutes</h3>
+                    <p>Food, treats,<br> toys & more</p>
+                    <button class="promo-btn3">Order Now</button>
+                </div>
+            </div>
+
+            <!-- Baby Care -->
+            <div class="promo-card babycare-bg">
+                <div class="promo-content ">
+                    <h3>No time for<br> a diaper run?</h3>
+                    <p>Get baby care<br> essentials in minutes</p>
+                    <button class="promo-btn3">Order Now</button>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+
+
+   <!-- Categories Section -->
+<div class="categories-container">
+    
+    <div class="categories-scroller">
+        <!-- Category 1 -->
+        <div class="category-card">
+            <div class="category-image">
+                <img src="https://cdn.grofers.com/cdn-cgi/image/f=auto,fit=scale-down,q=70,metadata=none,w=270/layout-engine/2022-11/Slice-3_9.png" alt="Fruits & Vegetables">
+            </div>
+            <div class="category-name">Fruits & Vegetables</div>
+        </div>
+        
+        <!-- Category 2 -->
+        <div class="category-card">
+            <div class="category-image">
+                <img src="https://cdn.grofers.com/cdn-cgi/image/f=auto,fit=scale-down,q=70,metadata=none,w=270/layout-engine/2022-11/Slice-6_5.png" alt="Dairy & Breakfast">
+            </div>
+            <div class="category-name">Dairy & Breakfast</div>
+        </div>
+        
+        <!-- Category 3 -->
+        <div class="category-card">
+            <div class="category-image">
+                <img src="https://cdn.grofers.com/cdn-cgi/image/f=auto,fit=scale-down,q=70,metadata=none,w=270/layout-engine/2022-11/Slice-5_4.png" alt="Snacks">
+            </div>
+            <div class="category-name">Snacks</div>
+        </div>
+        
+        <!-- Category 4 -->
+        <div class="category-card">
+            <div class="category-image">
+                <img src="https://cdn.grofers.com/cdn-cgi/image/f=auto,fit=scale-down,q=70,metadata=none,w=270/layout-engine/2022-11/Slice-8_4.png" alt="Bakery and Biscuits">
+            </div>
+            <div class="category-name">Bakery and Biscuits</div>
+        </div>
+        
+        <!-- Category 5 -->
+        <div class="category-card">
+            <div class="category-image">
+                <img src="https://cdn.grofers.com/cdn-cgi/image/f=auto,fit=scale-down,q=70,metadata=none,w=270/layout-engine/2022-11/Slice-19.png" alt="Beauty & Hygiene">
+            </div>
+            <div class="category-name">Beauty & Hygiene</div>
+        </div>
+        
+        <!-- Category 6 -->
+        <div class="category-card">
+            <div class="category-image">
+                <img src="https://cdn.grofers.com/cdn-cgi/image/f=auto,fit=scale-down,q=70,metadata=none,w=270/layout-engine/2022-11/Slice-17.png" alt="Cleaning">
+            </div>
+            <div class="category-name">Cleaning</div>
+        </div>
+         <!-- Category 7 -->
+         <div class="category-card">
+            <div class="category-image">
+                <img src="https://cdn.grofers.com/cdn-cgi/image/f=auto,fit=scale-down,q=70,metadata=none,w=270/layout-engine/2022-11/Slice-4_9.png" alt="Cold Drinks & Juices">
+            </div>
+            <div class="category-name">Cold Drinks & Juices</div>
+        </div>
+         <!-- Category 8 -->
+         <div class="category-card">
+            <div class="category-image">
+                <img src="https://cdn.grofers.com/cdn-cgi/image/f=auto,fit=scale-down,q=70,metadata=none,w=270/layout-engine/2022-11/Slice-15.png" alt="Baby Care">
+            </div>
+            <div class="category-name">Baby Care</div>
+        </div>
+         <!-- Category 9 -->
+         <div class="category-card">
+            <div class="category-image">
+                <img src="https://cdn.grofers.com/cdn-cgi/image/f=auto,fit=scale-down,q=70,metadata=none,w=270/layout-engine/2022-11/Slice-14.png" alt="Organic & Healthy Living">
+            </div>
+            <div class="category-name">Organic & Healthy Living</div>
+        </div>
+         <!-- Category 10 -->
+         <div class="category-card">
+            <div class="category-image">
+                <img src="https://cdn.grofers.com/cdn-cgi/image/f=auto,fit=scale-down,q=70,metadata=none,w=270/layout-engine/2022-11/Slice-13.png" alt="Chicken, Meat & Fish">
+            </div>
+            <div class="category-name">Chicken, Meat & Fish</div>
+        </div>
+         <!-- Category 11 -->
+         <div class="category-card">
+            <div class="category-image">
+                <img src="https://cdn.grofers.com/cdn-cgi/image/f=auto,fit=scale-down,q=70,metadata=none,w=270/layout-engine/2022-11/Slice-12.png" alt="Sauces & Spreads">
+            </div>
+            <div class="category-name">Sauces & Spreads</div>
+        </div>
+         <!-- Category 12 -->
+         <div class="category-card">
+            <div class="category-image">
+                <img src="https://cdn.grofers.com/cdn-cgi/image/f=auto,fit=scale-down,q=70,metadata=none,w=270/layout-engine/2022-11/Slice-11.png" alt="Masala, Oil & More">
+            </div>
+            <div class="category-name">Masala, Oil & More</div>
+        </div>
+         <!-- Category 13 -->
+         <div class="category-card">
+            <div class="category-image">
+                <img src="https://cdn.grofers.com/cdn-cgi/image/f=auto,fit=scale-down,q=70,metadata=none,w=270/layout-engine/2022-11/Slice-16.png" alt="Pharma & Wellness">
+            </div>
+            <div class="category-name">Pharma & Wellness</div>
+        </div>
+         <!-- Category 14 -->
+      <div class="category-card">
+        <div class="category-image">
+      <img src="https://cdn.grofers.com/cdn-cgi/image/f=auto,fit=scale-down,q=70,metadata=none,w=270/layout-engine/2022-11/Slice-2_10.png" alt="Dairy, Bread & Eggs">
+       </div>
+      <div class="category-name">Dairy, Bread & Eggs</div>
+      </div>
+      <!-- Category 15 -->
+<div class="category-card">
+    <div class="category-image">
+        <img src="https://cdn.grofers.com/cdn-cgi/image/f=auto,fit=scale-down,q=70,metadata=none,w=270/layout-engine/2022-11/Slice-7_3.png" alt="Sweet Tooth">
+    </div>
+    <div class="category-name">Sweet Tooth</div>
+ </div>
+ <!-- Category 16 -->
+ <div class="category-card">
+    <div class="category-image">
+        <img src="https://cdn.grofers.com/cdn-cgi/image/f=auto,fit=scale-down,q=70,metadata=none,w=270/layout-engine/2022-11/Slice-9_3.png" alt="Tea, Coffee & Health Drink">
+    </div>
+    <div class="category-name">Tea, Coffee & Health Drink</div>
+ </div>
+ <!-- Category 17 -->
+<div class="category-card">
+    <div class="category-image">
+        <img src="https://cdn.grofers.com/cdn-cgi/image/f=auto,fit=scale-down,q=70,metadata=none,w=270/layout-engine/2022-11/Slice-10.png" alt="Atta, Rice & Dal">
+    </div>
+    <div class="category-name">Atta, Rice & Dal</div>
+ </div>
+ <!-- Category 18 -->
+ <div class="category-card">
+    <div class="category-image">
+        <img src="https://cdn.grofers.com/cdn-cgi/image/f=auto,fit=scale-down,q=70,metadata=none,w=270/layout-engine/2022-11/Slice-18.png" alt="Home & Office">
+    </div>
+    <div class="category-name">Home & Office</div>
+ </div>
+ <!-- Category 19 -->
+<div class="category-card">
+    <div class="category-image">
+        <img src="https://cdn.grofers.com/cdn-cgi/image/f=auto,fit=scale-down,q=70,metadata=none,w=270/layout-engine/2022-11/Slice-19.png" alt="Personal Care">
+    </div>
+    <div class="category-name">Personal Care</div>
+ </div>
+ <!-- Category 20 -->
+ <div class="category-card">
+    <div class="category-image">
+        <img src="https://cdn.grofers.com/cdn-cgi/image/f=auto,fit=scale-down,q=70,metadata=none,w=270/layout-engine/2022-11/Slice-20.png" alt="Pet Care">
+    </div>
+    <div class="category-name">Pet Care</div>
+ </div>
+
+
+    </div>
+</div>
+
+    <!-- Products -->
+    <div class="products-section">  
+            <div class="products-grid">
+               
+                <!-- Products will be inserted here by JavaScript -->
+            </div>
+        </div>
+         
+   <!-- Accessibility Widget -->
+<button id="accessibilityToggle" aria-label="Accessibility options" aria-expanded="false" aria-controls="accessibilityPanel">
+    ♿
+</button>
+<div id="accessibilityPanel" class="accessibility-panel" hidden>
+    <div class="accessibility-header">
+        <h3 id="accessibilityPanelLabel">Accessibility Options</h3>
+    </div>
+    
+    <div class="accessibility-options">
+        <div class="accessibility-option">
+            <input type="checkbox" id="highContrast" aria-labelledby="highContrastLabel">
+            <label for="highContrast" id="highContrastLabel">
+                <span class="accessibility-icon">🌗</span>
+                High Contrast Mode
+            </label>
+        </div>
+        
+        <div class="accessibility-option">
+            <input type="checkbox" id="dyslexicFont" aria-labelledby="dyslexicFontLabel">
+            <label for="dyslexicFont" id="dyslexicFontLabel">
+                <span class="accessibility-icon">✍️</span>
+                Dyslexia-Friendly Font
+            </label>
+        </div>
+        
+        <div class="accessibility-option">
+            <input type="checkbox" id="biggerText" aria-labelledby="biggerTextLabel">
+            <label for="biggerText" id="biggerTextLabel">
+                <span class="accessibility-icon">🔍</span>
+                Larger Text
+            </label>
+        </div>
+        
+        <div class="accessibility-option">
+            <input type="checkbox" id="biggerButtons" aria-labelledby="biggerButtonsLabel">
+            <label for="biggerButtons" id="biggerButtonsLabel">
+                <span class="accessibility-icon">👆</span>
+                Larger Buttons
+            </label>
+        </div>
+        
+        <div class="accessibility-option">
+            <input type="checkbox" id="hoverReadToggle">
+            <label for="hoverReadToggle">
+              <span aria-hidden="true">👆</span> Hover-to-Read
+            </label>
+          </div>
+
+    </div>
+    
+    <div class="accessibility-option">
+        <button id="resetAllSettings" class="accessibility-btn">
+          <span class="accessibility-icon">♻️</span> Reset All Settings
+        </button>
+      </div>
+</div>
+
+    <!-- footer -->
+    <footer class="blinkit-footer">
+        <div class="footer-links">
+          <div class="links-column">
+            <h4>About</h4>
+            <ul>
+              <li><a href="#">Careers</a></li>
+              <li><a href="#">Blog</a></li>
+              <li><a href="#">Press</a></li>
+              <li><a href="#">Lead</a></li>
+              <li><a href="#">Value</a></li>
+            </ul>
+          </div>
+          
+          <div class="links-column">
+            <h4>Privacy</h4>
+            <ul>
+              <li><a href="#">Terms</a></li>
+              <li><a href="#">FAQs</a></li>
+              <li><a href="#">Security</a></li>
+              <li><a href="#">Mobile</a></li>
+              <li><a href="#">Contact</a></li>
+            </ul>
+          </div>
+          
+          <div class="links-column">
+            <h4>Partner</h4>
+            <ul>
+              <li><a href="#">Franchise</a></li>
+              <li><a href="#">Seller</a></li>
+              <li><a href="#">Warehouse</a></li>
+              <li><a href="#">Deliver</a></li>
+              <li><a href="#">Resources</a></li>
+            </ul>
+          </div>
+          
+          <div class="links-column">
+            <h4>Vegetables & Fruits</h4>
+            <ul>
+              <li><a href="#">Cold Drinks & Juices</a></li>
+              <li><a href="#">Bakery & Biscuits</a></li>
+              <li><a href="#">Dry Fruits, Masala & Oil</a></li>
+              <li><a href="#">Paan Corner</a></li>
+              <li><a href="#">Pharma & Wellness</a></li>
+              <li><a href="#">Ice Creams & Frozen Desserts</a></li>
+              <li><a href="#">Beauty & Cosmetics</a></li>
+              <li><a href="#">Stationery Needs</a></li>
+              <li><a href="#">E-Gift Cards</a></li>
+            </ul>
+          </div>
+          
+          <div class="links-column">
+            <h4>Dairy & Breakfast</h4>
+            <ul>
+              <li><a href="#">Instant & Frozen Food</a></li>
+              <li><a href="#">Sweet Tooth</a></li>
+              <li><a href="#">Sauces & Spreads</a></li>
+              <li><a href="#">Organic & Premium</a></li>
+              <li><a href="#">Cleaning Essentials</a></li>
+              <li><a href="#">Personal Care</a></li>
+              <li><a href="#">Fashion & Accessories</a></li>
+              <li><a href="#">Toys & Games</a></li>
+            </ul>
+          </div>
+          
+          <div class="links-column">
+            <h4>Munchies</h4>
+            <ul>
+              <li><a href="#">Tea, Coffee & Health Drinks</a></li>
+              <li><a href="#">Atta, Rice & Dal</a></li>
+              <li><a href="#">Chicken, Meat & Fish</a></li>
+              <li><a href="#">Baby Care</a></li>
+              <li><a href="#">Home & Office</a></li>
+              <li><a href="#">Pet Care</a></li>
+              <li><a href="#">Electronics & Electricals</a></li>
+              <li><a href="#">Print Store</a></li>
+            </ul>
+          </div>
+        </div>
+        
+        <div class="footer-bottom">
+          <div class="copyright">
+            © Blink Commerce Private Limited, 2016-2025
+          </div>
+          
+          <div class="app-download">
+            <p>Download App</p>
+            <div class="app-buttons">
+              <a href="#" class="app-store">App Store</a>
+              <a href="#" class="play-store">Google Play</a>
+            </div>
+          </div>
+          
+          <div class="disclaimer">
+            <p>BlinkIt is owned & managed by "Blink Commerce Private Limited" and is not related, linked or interconnected in whatsoever manner or nature, to "GROFFR.COM" which is a real estate services business operated by "Redstone Consultancy Services Private Limited".</p>
+          </div>
+        </div>
+      </footer>
+      
+    <script src="script.js"></script>
+</body>
+</html>

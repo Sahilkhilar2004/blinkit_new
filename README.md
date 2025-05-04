@@ -3,9 +3,9 @@
 
 A full-stack grocery delivery web application with enhanced features, replicating Blinkit's core functionality while adding innovative improvements.
 
-**Live Demo:** [blinkit-new.vercel.app]()
+**Live Demo:** [blinkit-new.vercel.app](blinkit-new.vercel.app)
 
-**Project Preview** ![assets/screenshots]()
+**Project Preview** ![assets/screenshots](assets/screenshots)
 
 
 ## 🚀 Key Features
